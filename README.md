@@ -1,4 +1,4 @@
-# react-glsl-sample
+# react-glsl
 ### dir
 ```shell
 .
