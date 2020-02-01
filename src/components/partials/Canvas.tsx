@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
 import './Canvas.scss';
-import useGetWindowSize from './hooks/useGetWindowSize'
+import useGetWindowSize from '../hooks/useGetWindowSize'
 
 const fragment = require('./shaders/fragment.glsl');
 

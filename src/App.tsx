@@ -1,5 +1,5 @@
 import React from 'react';
-import Canvas from '../src/components/Canvas';
+import Canvas from './components/partials/Canvas';
 
 const App: React.FC = () => {
   return (
