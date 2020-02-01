@@ -12,9 +12,11 @@ const shaders = Shaders.create({
 });
 
 const Canvas: React.FC = () => (
-  <Surface width={300} height={300}>
-    <Node shader={shaders.helloGL}></Node>
-  </Surface>
+  <div className="CanvasWrap">
+    <Surface width={300} height={300}>
+      <Node shader={shaders.helloGL}></Node>
+    </Surface>
+  </div>
 );
 
 export default Canvas;
