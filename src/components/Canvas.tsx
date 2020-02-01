@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
 import './Canvas.scss';
+import useGetWindowSize from './hooks/useGetWindowSize'
 
 const fragment = require('./shaders/fragment.glsl');
 
 const shaders = Shaders.create({
-  helloGL: {
+  smoke: {
     frag: GLSL`${fragment.default}`
   }
 });
 
-const Canvas: React.FC = () => (
-  <div className="CanvasWrap">
-    <Surface width={300} height={300}>
-      <Node shader={shaders.helloGL}></Node>
-    </Surface>
-  </div>
-);
+let payload = 0;
+
+const Canvas: React.FC = () => {
+  const { width, height } = useGetWindowSize();
+  const [timer, setTimer] = useState(0);
+  const animate = () => {
+    payload += 10;
+    setTimer(payload);
+    console.log(timer)
+    window.requestAnimationFrame(animate);
+  }
+  useEffect(() => {
+    animate();
+  }, [])
+  return (
+    <div className="CanvasWrap">
+      <Surface width={400} height={400}>
+        <Node
+          shader={shaders.smoke}
+          uniforms={{
+            shift: 1.6,
+            time: timer / 1000,
+            speed: [1.0, 1.0],
+            resolution: [width, height]
+          }} />
+      </Surface>
+    </div>
+  );
+};
 
 export default Canvas;
