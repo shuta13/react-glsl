@@ -3,7 +3,7 @@ import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
 import useGetWindowSize from '../hooks/useGetWindowSize'
 
-const fragment = require('./shaders/SampleShader.frag');
+const fragment = require('./shaders/SampleShader/frag.glsl');
 
 const shaders = Shaders.create({
   smoke: {
