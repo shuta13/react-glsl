@@ -30,16 +30,18 @@ const Canvas: React.FC = () => {
 
   return (
     <div className="CanvasWrap">
-      <Surface width={400} height={400}>
-        <Node
-          shader={shaders.smoke}
-          uniforms={{
-            shift: 1.6,
-            time: timer,
-            speed: [1.0, 1.0],
-            resolution: [width, height]
-          }} />
-      </Surface>
+      <div className="CanvasClip">
+        <Surface width={400} height={400}>
+          <Node
+            shader={shaders.smoke}
+            uniforms={{
+              shift: 1.6,
+              time: timer,
+              speed: [1.0, 1.0],
+              resolution: [width, height]
+            }} />
+        </Surface>
+      </div>
     </div>
   );
 };
