@@ -1,14 +1,13 @@
 import React from 'react';
 import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
+import './Canvas.scss';
 
-import fragment from './shaders/fragment.glsl'
-
-import './Canvas.scss'
+const fragment = require('./shaders/fragment.glsl');
 
 const shaders = Shaders.create({
   helloGL: {
-    frag: fragment
+    frag: GLSL`${fragment.default}`
   }
 });
 
