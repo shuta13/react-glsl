@@ -20,7 +20,7 @@ const Canvas: React.FC = () => {
   // timer for animate
   const [timer, setTimer] = useState(0);
   const animate = useCallback(() => {
-    payload += 10;
+    payload += 0.018;
     setTimer(payload);
     window.requestAnimationFrame(animate);
   }, []);
@@ -35,7 +35,7 @@ const Canvas: React.FC = () => {
           shader={shaders.smoke}
           uniforms={{
             shift: 1.6,
-            time: timer / 1000,
+            time: timer,
             speed: [1.0, 1.0],
             resolution: [width, height]
           }} />

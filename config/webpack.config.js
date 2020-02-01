@@ -354,10 +354,7 @@ module.exports = function(webpackEnv) {
             // for loading glsl
             {
               test: /\.(glsl|frag|vert)$/,
-              use: [
-                require.resolve('raw-loader'),
-                require.resolve('glslify-loader'),
-              ]
+              use: ["raw-loader", "glslify-loader"]
             },
             // "url" loader works like "file" loader except that it embeds assets
             // smaller than specified limit in bytes as data URLs to avoid requests.
