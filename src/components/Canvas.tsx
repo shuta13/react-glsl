@@ -1,23 +1,21 @@
 import React from 'react';
+import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
+
+import fragment from './shaders/fragment.glsl'
 
 import './Canvas.scss'
 
 const shaders = Shaders.create({
   helloGL: {
-    frag: GLSL`
-      precision highp float;
-      varying vec2 uv;
-      uniform float blue;
-      void main() {
-        gl_FragColor = vec4(uv.x, uv.y, blue, 1.0);
-      }
-    `
+    frag: fragment
   }
 });
 
 const Canvas: React.FC = () => (
-  <Node shader={shaders.helloGL}></Node>
+  <Surface width={300} height={300}>
+    <Node shader={shaders.helloGL}></Node>
+  </Surface>
 );
 
 export default Canvas;
