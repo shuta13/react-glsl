@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Surface } from 'gl-react-dom';
 import { Shaders, Node, GLSL } from 'gl-react';
 import './Canvas.scss';
@@ -19,14 +19,14 @@ const Canvas: React.FC = () => {
 
   // timer for animate
   const [timer, setTimer] = useState(0);
-  const animate = () => {
+  const animate = useCallback(() => {
     payload += 10;
     setTimer(payload);
     window.requestAnimationFrame(animate);
-  }
+  }, []);
   useEffect(() => {
     animate();
-  }, []);
+  }, [animate]);
 
   return (
     <div className="CanvasWrap">
