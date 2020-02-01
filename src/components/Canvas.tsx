@@ -16,16 +16,18 @@ let payload = 0;
 
 const Canvas: React.FC = () => {
   const { width, height } = useGetWindowSize();
+
+  // timer for animate
   const [timer, setTimer] = useState(0);
   const animate = () => {
     payload += 10;
     setTimer(payload);
-    console.log(timer)
     window.requestAnimationFrame(animate);
   }
   useEffect(() => {
     animate();
-  }, [])
+  }, []);
+
   return (
     <div className="CanvasWrap">
       <Surface width={400} height={400}>
