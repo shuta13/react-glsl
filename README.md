@@ -45,7 +45,7 @@ oneOf: [
 ```javascript
 const fragment = require('./shaders/fragment.glsl');
 ```
-6. Apply it as string
+6. Apply it as string by `gl-react`
 ```javascript
 const shaders = Shaders.create({
   helloGL: {
