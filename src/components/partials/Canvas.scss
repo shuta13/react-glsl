@@ -7,6 +7,13 @@
   background: #f0f0f0;
 }
 
+.CanvasClipWrap {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 .CanvasClip {
   width: 400px;
   height: 400px;
