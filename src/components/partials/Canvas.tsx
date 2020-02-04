@@ -6,7 +6,7 @@ import GLSLPractice from './GLSLPractice';
 import './Canvas.scss';
 
 const Canvas: React.FC = () => {
-  const [name, setName] = useState('SampleShader');
+  const [name, setName] = useState('');
   const changeCanvas = (payload: string) => {
     setName(payload);
   }
@@ -17,7 +17,7 @@ const Canvas: React.FC = () => {
       case 'GLSLPractice':
         return <GLSLPractice />;
       default:
-        return <div>plz select</div>;
+        return <GLSLPractice />;
     }
   }
   return (
