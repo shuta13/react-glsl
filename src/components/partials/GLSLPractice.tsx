@@ -33,7 +33,7 @@ const GLSLPractice: React.FC = () => {
       <Node
         shader={shaders.practice}
         uniforms={{
-          // t: timer,
+          t: timer,
           r: [width, height]
         }}
       />
