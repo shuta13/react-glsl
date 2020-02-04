@@ -17,7 +17,7 @@ const Canvas: React.FC = () => {
       case 'GLSLPractice':
         return <GLSLPractice />;
       default:
-        return <GLSLPractice />;
+        return <div>select</div>;
     }
   }
   return (
