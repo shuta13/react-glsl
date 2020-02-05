@@ -35,8 +35,8 @@ const TheBookOfShaders: React.FC = () => {
       <Node
         shader={shaders.practice}
         uniforms={{
-          u_time: timer,
-          u_mouse: [x, y],
+          // u_time: timer,
+          // u_mouse: [x, y],
           u_resolution: [width, height]
         }}
       />
