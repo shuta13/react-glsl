@@ -14,29 +14,26 @@ const vec3 lineColor = vec3(0.3, 0.2, 0.2);     // ラインの色
 
 // 背景の後光を描く
 void sunrise(vec2 p, inout vec3 i){
-    float f = atan(p.y, p.x) + t;
-    float fs = sin(f * 10.0);
-    i = mix(lightColor, backColor, fs);
+  float f = atan(p.y, p.x) + t;
+  float fs = sin(f * 10.0);
+  i = mix(lightColor, backColor, fs);
 }
 
 // 円を描く
 void circle(vec2 p, vec2 offset, float size, vec3 color, inout vec3 i){
-    float l = length(p - offset);
-    if(l < size){
-        i = color;
-    }
+  float l = length(p - offset);
+  if(l < size){
+      i = color;
+  }
 }
 
 void main(){
-    // 座標を正規化する
-    vec2 p = (gl_FragCoord.xy * 2.0 - r) / min(r.x, r.y);
-
-    // 最終的に出力される色
-    vec3 destColor = vec3(1.0);
-
-    // 背景の後光を描く
-    sunrise(p, destColor);
-    circle(p, vec2(0.0), 0.35, noseColor, destColor);
-
-    gl_FragColor = vec4(destColor, 1.0);
+  // 座標を正規化する
+  vec2 p = (gl_FragCoord.xy * 2.0 - r) / min(r.x, r.y);
+  // 最終的に出力される色
+  vec3 destColor = vec3(1.0);
+  // 背景の後光を描く
+  sunrise(p, destColor);
+  circle(p, vec2(0.0), 0.35, noseColor, destColor);
+  gl_FragColor = vec4(destColor, 1.0);
 }
