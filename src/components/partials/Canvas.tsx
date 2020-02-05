@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Menu from './Menu';
 import SampleShader from './SampleShader';
 import GLSLPractice from './GLSLPractice';
+import TheBookOfShaders from './TheBookOfShaders';
 
 import './Canvas.scss';
 
@@ -16,6 +17,8 @@ const Canvas: React.FC = () => {
         return <SampleShader />;
       case 'GLSLPractice':
         return <GLSLPractice />;
+      case 'TheBookOfShaders':
+        return <TheBookOfShaders />;
       default:
         return <div>select</div>;
     }
