@@ -17,10 +17,6 @@ const Canvas: React.FC = () => {
   const stats = new Stats();
   stats.showPanel(0);
   mount.current?.appendChild(stats.dom);
-
-  const changeCanvas = (payload: string) => {
-    setName(payload);
-  }
   const animate = useCallback(() => {
     requestRef.current = window.requestAnimationFrame(animate);
   }, []);
@@ -28,6 +24,11 @@ const Canvas: React.FC = () => {
     requestRef.current = window.requestAnimationFrame(animate);
     return () => window.cancelAnimationFrame(requestRef.current);
   }, [animate]);
+
+  // handle change canvas
+  const changeCanvas = (payload: string) => {
+    setName(payload);
+  }
   const RenderCanvas = ({ stats }: { stats: Stats }) => {
     switch (name) {
       case 'SampleShader':
