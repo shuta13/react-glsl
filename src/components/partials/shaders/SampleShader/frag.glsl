@@ -1,10 +1,12 @@
 // https://codesandbox.io/s/react-glsl-example-5pqw3
 precision mediump float;
 
-uniform vec2      resolution;
+uniform float     resolution_x;
+uniform float     resolution_y;
 uniform float     time;
 uniform float     alpha;
-uniform vec2      speed;
+uniform float     speed_x;
+uniform float     speed_y;
 uniform float     shift;
 float rand(vec2 n) {
   return fract(sin(dot(n, vec2(6.9898, 1.1414))) * 4.0);
@@ -30,11 +32,11 @@ void main() {
   const vec3 c4 = vec3(164.0/255.0, 1.0/255.0, 214.4/255.0);
   const vec3 c5 = vec3(0.0);
   const vec3 c6 = vec3(0.6);
-  vec2 p = gl_FragCoord.xy * 8.0 / resolution.xx;
+  vec2 p = gl_FragCoord.xy * 8.0 / resolution_x;
   float q = fbm(p - time * 0.5);
-  vec2 r = vec2(fbm(p + q + time * speed.x - p.x - p.y), fbm(p + q - time * speed.y));
+  vec2 r = vec2(fbm(p + q + time * speed_x - p.x - p.y), fbm(p + q - time * speed_y));
   vec3 c = mix(c1, c2, fbm(p + r)) + mix(c3, c4, r.x) - mix(c5, c6, r.y);
-  float grad = gl_FragCoord.x / resolution.x;
-  gl_FragColor = vec4(c * sin(shift * gl_FragCoord.y / resolution.y), 1.0);
+  float grad = gl_FragCoord.x / resolution_x;
+  gl_FragColor = vec4(c * sin(shift * gl_FragCoord.y / resolution_y), 1.0);
   gl_FragColor.xyz *= 1.0;
 }

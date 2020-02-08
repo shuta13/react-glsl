@@ -33,16 +33,21 @@ const SampleShader: React.FC<{ stats: Stats }> = ({ stats }) => {
     return () => window.cancelAnimationFrame(requestRef.current);
   }, [animate]);
 
+  // uniform params
+  const unifromParams = {
+    shift: 1.6,
+    time: timer,
+    speed_x: 0.5,
+    speed_y: 0.5,
+    resolution_x: width,
+    resolution_y: height
+  }
+
   return (
     <Surface width={400} height={400}>
       <Node
         shader={shaders.smoke}
-        uniforms={{
-          shift: 1.6,
-          time: timer,
-          speed: [1.0, 1.0],
-          resolution: [width, height]
-        }} />
+        uniforms={{ ...unifromParams }} />
     </Surface>
   );
 };
