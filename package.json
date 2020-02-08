@@ -61,6 +61,7 @@
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.0",
     "semver": "6.3.0",
+    "stats.js": "^0.17.0",
     "style-loader": "1.0.0",
     "terser-webpack-plugin": "2.2.1",
     "ts-pnp": "1.1.5",
@@ -93,7 +94,8 @@
   },
   "devDependencies": {
     "@types/gl-react": "3.15.2",
-    "@types/gl-react-dom": "3.15.3"
+    "@types/gl-react-dom": "3.15.3",
+    "@types/stats": "^0.16.30"
   },
   "jest": {
     "roots": [
